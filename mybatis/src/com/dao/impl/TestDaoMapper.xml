@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test">
+ 	<select id="query" resultType="Test">
+ 		select * from Test
+ 	</select>
+ 	
+ 	<select id="get" parameterType="long" resultType="Test">
+ 		select * from Test where id=#{id}
+ 	</select>
+ 	
+ 	<insert id="save" parameterType="Test">
+ 		insert into test(name,gender,address) values(#{name},#{gender},#{address})
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="Test">
+ 		update test set name=#{name},gender=#{gender},address=#{address} where id=#{id}
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="long">
+ 		delete from test where id = #{id}
+ 	</delete>
+</mapper>

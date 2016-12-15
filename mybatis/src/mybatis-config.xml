@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 实体类的别名 -->
+	<!-- java.lang.Integer int java.lang.Long long java.lang.String string -->
+	<typeAliases>
+		<typeAlias alias="Test" type="com.entity.Test" />
+	</typeAliases>
+
+	<!-- 数据库 -->
+	<environments default="mysql">
+		<environment id="mysql">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/test" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+			</dataSource>
+		</environment>
+
+		<environment id="sqlserver">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver"
+					value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+				<property name="url"
+					value="jdbc:sqlserver://localhost:1433;databasename=master" />
+				<property name="username" value="sa" />
+				<property name="password" value="sa" />
+			</dataSource>
+		</environment>
+	</environments>
+
+
+	<mappers>
+		<mapper resource="com/dao/impl/TestDaoMapper.xml" />
+
+
+		<!-- <mapper resource="ch01/UserInfoDao.xml"/> -->
+
+		<!-- <mapper resource="ch02/UserInfoDao.xml"/> -->
+
+		<!-- dao的映射文件 当接口的配置文件多的时候，太多, 我们可以用包 的开式配置，规则：接口名与接口的配置文件一模一样 接口名:UsersDao 
+			配置文件名: UsersDao.xml 错误的写法:UsersDaoMapper.xml <package name="ch01"/> -->
+		<!-- <package name="ch02"/> -->
+
+	</mappers>
+
+
+</configuration>
